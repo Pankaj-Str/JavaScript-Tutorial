@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function gettax(price,gst){
+            gst_amount = price*gst/100
+            final_amount = price + gst_amount
+            document.write("<hr>")
+            document.write("Price = "+price+"<br>")
+            document.write("GST = "+gst+"<br>")
+            document.write("Total GST Amount = "+gst_amount+"<br>")
+            document.write("MRP - include GST = "+final_amount+"<br>")
+        }
+
+        gettax(1200,18)
+        gettax(7800,9)
+        gettax(15000,2)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

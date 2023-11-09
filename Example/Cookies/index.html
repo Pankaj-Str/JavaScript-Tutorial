@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sendcookies(){
+
+            let Name = document.getElementById("Name").value;
+            let Value = document.getElementById("Value").value;
+
+           // document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+            document.cookie = Name+" = "+Value;
+            //document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            let x = document.cookie;
+            document.getElementById("print1").innerHTML = x;
+
+        }
+    </script>
+</head>
+<body>
+
+    User Name<input type="text" id="Name">
+    <br>
+    User Value<input type="text" id="Value">
+    <button onclick="sendcookies()">Send Cookies</button>
+
+    <ul>
+        <p id="print1"></p>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Month</title>
+    <script>
+        function getmonth(){
+
+           let MonthNo = document.getElementById("MonthNo").value;
+           MonthNo1 = parseInt(MonthNo);
+           
+           switch(MonthNo1){
+
+            case  1 : document.getElementById("result").innerHTML = "Our systems have detected unusual traffic from your computer network. This page checks to see if it's really you sending the requests, and not a robot."
+            break;
+            case  2 : alert("jan1"); 
+            break;
+            case  3 : alert("jan2"); 
+            break;
+            case  4 : alert("jan3"); 
+            break;
+            case  5 : alert("ja4n"); 
+            break;
+            case  6 : alert("jan5"); 
+            break;
+            case  7 : alert("jan6"); 
+            break;
+            case  8 : alert("jan7"); 
+            break;
+            case  9 : alert("jan8"); 
+            break;
+            case  10 : alert("jan23"); 
+            break;
+            case  11 : alert("jan9"); 
+            break;
+            case  12 : alert("jan99"); 
+            break;
+            default : alert("Enter only 1 - 12 Number");
+
+           }
+
+        }
+    </script>
+
+</head>
+<body>
+    <label>Enter Month Number </label>
+    <input type="text" id="MonthNo">
+    <button onclick="getmonth()">Get Result</button>
+
+    <h1 id="result"></h1>
+</body>
+</html>

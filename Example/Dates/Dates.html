@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Date</title>
+    <script>
+
+        function print(){
+
+                // Current date and time
+                let currentDate = new Date();
+                let year = currentDate.getFullYear();
+                let month = currentDate.getMonth(); // 0-based (0 = January)
+                let day = currentDate.getDate();
+                let hours = currentDate.getHours();
+                let minutes = currentDate.getMinutes();
+                let seconds = currentDate.getSeconds();
+                let milliseconds = currentDate.getMilliseconds();
+
+                document.getElementById("year").innerHTML = year;
+                document.getElementById("month").innerHTML = month;
+                document.getElementById("day").innerHTML = day;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("Seconds").innerHTML = seconds;
+                document.getElementById("milliseconds").innerHTML = milliseconds;
+                document.getElementById("currentDate").innerHTML = currentDate;
+                
+
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <h1>Getting Date</h1>
+    <ol>
+        <li>year : <span id="year"></span></li>
+        <li>month : <span id="month"></span></li>
+        <li>day : <span id="day"></span></li>
+        <li>hours : <span id="hours"></span></li>
+        <li>minutes : <span id="minutes"></span></li>
+        <li>Seconds : <span id="Seconds"></span></li>
+        <li>milliseconds : <span id="milliseconds"></span></li>
+        <li>currentDate : <span id="currentDate"></span></li>
+
+    </ul>
+
+    <button onclick="print()">Click to print Date </button>
+</body>
+</html>
+
+<style>
+    span{
+        color: brown;
+        font-weight: bold;
+    }
+</style>
