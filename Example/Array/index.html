@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="Array.js"></script> -->
+    <script>
+        function printfood(){
+            food = ['samosa','kachori','fafda','jalebi','dhokla','vada pav']
+
+            for(i = 0 ; i < food.length; i++ ){
+                
+                document.getElementById("box").innerHTML += "<li>"+food[i]+"</li>";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+        <button onclick="printfood()">Click To Print</button>
+        <ul id="box">
+            
+        </ul>
+</body>
+</html>
+<style>
+    li{
+        height: 35px;
+        width: 120px;
+        background-color: aqua;
+        border: solid 1px brown;
+        border-radius: 25px;
+        text-align: center;
+        margin: 10px;
+        padding-top: 10px;
+        list-style: none;
+    }
+</style>
