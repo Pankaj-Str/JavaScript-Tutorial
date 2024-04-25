@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function add(){
+        let n1 = document.getElementById("num1").value;
+        let n2 = document.getElementById("num2").value;
+
+        let result = +n1 + +n2;
+
+        //alert(result);
+        //document.write(result)
+
+        document.getElementById("printresult").innerHTML = result;
+        
+    }
+
+    </script>
+</head>
+<body>
+    <label>Number : 1 </label>
+    <input type="text" id="num1"><br>
+    <label>Number : 2 </label>
+    <input type="text" id="num2"><br>
+    <button onclick="add()">Result</button>    
+    <h1>Result : <span id="printresult"></span></h1>
+</body>
+</html>
