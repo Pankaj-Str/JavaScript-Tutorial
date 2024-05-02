@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            height: auto;
+            width: auto;
+            border: solid 1px black;
+            float: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: bisque;
+            border-radius: 20px;
+            margin: 10px;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+    <script>
+        
+        function get_data(){
+        data = ['java','c++','python','reactjs','jsp']
+        // console.log(data)
+        // console.log(data[1])
+
+        print_d = document.getElementById("print_data");
+
+        for (let index = 0; index < data.length; index++) {
+           
+            print_d.innerHTML += "<li>"+data[index]+"</li>";
+            
+        }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="get_data()">Get Data</button>
+    <ul id="print_data">
+
+    </ul>
+</body>
+</html>
