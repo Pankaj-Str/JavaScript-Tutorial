@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-        // create a function
-        function info(){
 
-            alert("welcome to codeswithpankaj.com")
+<script>
 
-        }
-        //calling
-        info()
+    //function
 
-        // with arg function
-        function product(price,qt){
-            total_price = price*qt
-            document.write("<hr>"+"total = "+total_price+"<hr>")
-        }
-        // calling
-        product(1200,3)
-    </script>
+    // basic function
+
+    function get_info(){
+
+        console.log("welcome to : codeswithpankaj.com");
+
+    }
+
+    // calling function 
+
+    get_info();
+
+
+    // function with arg.
+
+
+    function user_info(Name,age){
+        console.log("your name is : "+Name);
+        console.log("your age is : "+age)
+    }
+
+    // calling function 
+
+    user_info("joy",23);
+
+    // with return type
+
+    function set_number(){
+
+        return 900;
+    }
+
+    // print function value
+    console.log(set_number())
+
+
+    function msg(){
+        alert("welcome tp p4n.in");
+    }
+
+</script>
+
+    <button onclick="msg()">Show alert</button>
+
 </head>
 <body>
+
+
+    
+    
+
+
     
 </body>
 </html>
