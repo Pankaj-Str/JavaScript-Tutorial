@@ -1,0 +1,16 @@
+ul{
+    list-style: none;
+}
+
+li{
+    border: solid 1px black;
+    background-color: aqua;
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 5px;
+    float: left;
+    margin: 10px;
+}
