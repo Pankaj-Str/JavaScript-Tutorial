@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <ul id="print_food">
+        <script>
+            food = ['Samosa','kachori','jalebi','fafda','vadapav','Pav Bhaji']
+            
+            p_food = document.getElementById("print_food");
+    
+            for (let index = 0; index < food.length; index++) {
+                
+                p_food.innerHTML += "<li>"+food[index]+"</li>";
+                
+            }
+    
+        </script>
+    </ul>
+</body>
+</html>
+<style>
+    ul{
+        list-style: none;
+    }
+    li{
+        padding: 10px;
+        border: solid 1px black;
+        width: 100px;
+        text-align: center;
+        margin: 10px;
+        
+    }
+
+</style>
