@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div{
+            height: 500px;
+            width: 1200px;
+            margin: auto;
+            text-align: center;
+            margin-top: 300px;
+        }
+    </style>
+    <script>
+          function waitSixSeconds(){
+             window.setTimeout("opens()", 6000);
+          }
+
+          function opens(){
+            window.open("welcome.html","_self");
+          }
+    </script>
+
+
 </head>
-<body>
-    
+<body onLoad="waitSixSeconds()">
+    <div>
+        <img src="image/loader.gif" height="100" width="100"> 
+    </div>
+       
 </body>
 </html>
