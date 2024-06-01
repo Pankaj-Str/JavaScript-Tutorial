@@ -4,16 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="JavaScriptArray.js"></script>
+    <!-- <script src="JavaScriptArray.js"></script> -->
     <script>
         
-        data = ['A','B','C','D'];
+        // Array Empty
 
-        //console.log(data[0]);
+        data = [] 
 
-        for(let i = 0 ; i <= 10 ; i++){
-            console.log(data[i])
-        }
+        // print array 
+        console.log(data)
+
+        // data array
+        data = [1,2,3,4,5]
+        console.log(data)
+
+        // find length
+        console.log(data.length)
+
+        // using push()
+        data.push(6,7,8)
+        console.log(data)
+
+        // using pop()
+        data.pop()
+        console.log(data)
+
+        // using unshift()
+        data.unshift(0)
+        console.log(data)
+
+        // shift()
+        data.shift()
+        console.log(data)
+        // concat()
+        data2 = [9,10,11]
+        console.log(data.concat(data2))
+        // splice()
+        fruits = ["apple", "banana", "cherry"];
+        removedFruit = fruits.splice(2, 1, "orange", "kiwi","Mango");
+        console.log(fruits)
+
+        // slice()
+        fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+        slicedFruits = fruits.slice(1, 3);
+        console.log(slicedFruits)
+
+
+
+        // join()`
+        fruits = ["apple", "banana", "cherry"];
+        console.log(fruits.join(" | "))
+
+        fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+        slicedFruits = fruits.slice(2, 4);
+        console.log(slicedFruits)
+        // indexOf()
+        fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+        console.log(fruits.indexOf("cherry"))
+
+        // lastIndexOf()
+        fruits = ["apple", "banana", "cherry", "date", "elderberry",
+        "cherry", "fig", "grape","cherry"];
+        console.log(fruits.lastIndexOf("cherry"))
+
+        // forEach()
+        fruits = ["apple", "banana", "cherry"];
+        fruits.forEach(function(item, index, array) {
+            console.log(item + " is at index " + index);
+        });
+        // map()
+        fruits = ["apple", "banana", "cherry"];
+        newFruits = fruits.map(function(item) {
+            return item.toUpperCase();
+            });
+            console.log(newFruits)
+
+            // filter()
+            fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+            newFruits = fruits.filter(function(item) {
+                return item.length > 5;
+                });
+                console.log(newFruits)
 
 
     </script>
