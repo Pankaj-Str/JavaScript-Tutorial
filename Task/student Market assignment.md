@@ -1,70 +1,123 @@
+##Assignment: Advanced Student Marksheet Application
 
-Student Marksheet Project
+Objective
 
-Description
+Develop an advanced Student Marksheet Application using HTML, CSS, and JavaScript with extended features for data management and interactivity.
 
-This project is a simple web-based application for managing student marksheets. It allows users to input student details, calculate total marks, percentage, and grade, and display the results in a tabular format. The project is built using HTML, CSS, and JavaScript.
+Problem Statement
 
-Features
-	•	Input student details: Name, Roll Number, and Marks for three subjects.
-	•	Calculate:
+Design a feature-rich application that allows users to:
+	1.	Input student details (Name, Roll Number, and Marks in three subjects).
+	2.	Perform advanced calculations:
 	•	Total Marks
 	•	Percentage
-	•	Grade (based on percentage).
-	•	Dynamically display results in a table.
-	•	Form validation for proper input values.
+	•	Grade (based on a customizable grading scale).
+	3.	Manage data through dynamic functionalities:
+	•	Add, edit, and delete student records.
+	•	Sort student records by Name, Roll Number, or Percentage.
+	•	Filter records based on grades or a specific percentage range.
 
-Technologies Used
-	•	HTML: For the structure of the application.
-	•	CSS: For styling the form and table.
-	•	JavaScript: For calculations and dynamic content management.
+Functional Requirements
 
-Setup and Usage
-	1.	Clone or download the project:
-
-git clone https://github.com/your-username/student-marksheet.git
-cd student-marksheet
-
-
-	2.	Open the project directory and launch the index.html file in any modern browser.
-
-How It Works
-	1.	Fill out the form with student details:
-	•	Name
+Core Features
+	1.	Input Fields:
+	•	Student Name
 	•	Roll Number
-	•	Marks for Math, Science, and English (0-100).
-	2.	Click the “Add to Marksheet” button.
-	3.	The application will:
-	•	Calculate the total marks and percentage.
-	•	Assign a grade based on the percentage.
-	•	Display the results in the table below the form.
+	•	Marks in three subjects (e.g., Math, Science, and English).
+	2.	Dynamic Calculations:
+	•	Total Marks: Sum of marks in the three subjects.
+	•	Percentage: (Total Marks / Maximum Marks) * 100.
+	•	Grade:
+	•	Implement a customizable grading system (e.g., A+, A, B, C, Fail).
+	•	Allow users to adjust grade thresholds (e.g., 90%+ = A+).
+	3.	Data Management:
+	•	Add new records dynamically to a table.
+	•	Edit existing records (e.g., update marks or student details).
+	•	Delete specific records.
+	4.	Table Interactivity:
+	•	Sort records dynamically based on:
+	•	Student Name (Alphabetically)
+	•	Roll Number
+	•	Percentage (Highest to Lowest).
+	•	Filter records by:
+	•	Grade (e.g., Show only A+ students).
+	•	Percentage range (e.g., 70%-90%).
+
+Advanced Features
+	1.	Search Functionality:
+	•	Enable users to search for specific students by Name or Roll Number.
+	2.	Data Persistence:
+	•	Save the student data in Local Storage so it persists across browser sessions.
+	3.	Bulk Upload:
+	•	Allow users to upload student data in bulk using a CSV file.
+	•	Validate and parse the data to add it to the table dynamically.
+	4.	Export Functionality:
+	•	Provide an option to export the student records as a CSV file.
+	5.	Responsive Design:
+	•	Ensure the application is fully responsive and works seamlessly across different screen sizes.
+
+Technical Requirements
+
+HTML
+	•	Create a structured form for student input.
+	•	Design a table to display the results with sortable and filterable columns.
+
+CSS
+	•	Use advanced CSS features for a polished UI:
+	•	Hover effects for table rows.
+	•	Responsive layout with media queries.
+	•	Styled buttons and modals for editing records.
+
+JavaScript
+	•	Use JavaScript to:
+	•	Perform calculations (Total, Percentage, Grade).
+	•	Manage data (Add, Edit, Delete, Sort, Filter).
+	•	Implement Local Storage for data persistence.
+	•	Handle file uploads and exports.
+
+Assignment Deliverables
+	1.	A fully functional Student Marksheet Application with:
+	•	Add, edit, delete, sort, and filter functionalities.
+	•	Local Storage implementation.
+	•	CSV upload and export features.
+	2.	Code Structure:
+	•	Organize the code into separate files:
+	•	index.html: For the structure.
+	•	styles.css: For styling.
+	•	script.js: For JavaScript logic.
+	3.	Code Documentation:
+	•	Include comments in your code to explain the logic and functionality.
 
 Grading Criteria
 
-Percentage Range	Grade
-90% and above	A+
-80% - 89%	A
-70% - 79%	B
-60% - 69%	C
-Below 60%	Fail
+Task	Marks
+Proper HTML structure	10
+Advanced CSS styling	15
+JavaScript for dynamic calculations	15
+Add, Edit, Delete functionality	20
+Sort and Filter functionalities	20
+Local Storage for data persistence	10
+File Upload and Export	10
 
-Project Structure
+Example Scenarios
+	1.	Scenario 1:
+	•	Add a student named “John Doe” with Roll Number “101” and marks: Math = 85, Science = 78, English = 92.
+	•	The application calculates Total Marks = 255, Percentage = 85%, Grade = A.
+	2.	Scenario 2:
+	•	Edit John Doe’s Science marks to 88.
+	•	Total Marks and Percentage are recalculated dynamically.
+	3.	Scenario 3:
+	•	Filter the table to display only students with a grade of “A+”.
+	4.	Scenario 4:
+	•	Upload a CSV file with student data.
+	•	Validate the data, calculate results, and display them in the table.
+	5.	Scenario 5:
+	•	Export the current table records as a CSV file.
 
-student-marksheet/
-├── index.html        # Main HTML file
-├── styles.css        # Styling file
-├── script.js         # JavaScript for functionality
-└── README.md         # Project documentation
-
-Future Enhancements
-	•	Add a feature to edit or delete student records.
-	•	Store data in local storage to persist information across sessions.
-	•	Add sorting and filtering options for the results table.
-
-Contributing
-
-Contributions are welcome! If you have suggestions or want to report issues, feel free to open an issue or submit a pull request.
-
-License
-
-This project is licensed under the MIT License.
+Advanced Challenges (Optional)
+	1.	Add a Graphical Representation:
+	•	Use a JavaScript chart library (e.g., Chart.js) to display a bar chart showing the distribution of grades.
+	2.	Add Authentication:
+	•	Implement a basic login system to secure the application.
+	3.	Add Dark Mode:
+	•	Provide a toggle option for dark mode.
