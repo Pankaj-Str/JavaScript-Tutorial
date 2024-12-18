@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Codes With Pankaj Personal Finance Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .input-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input, select, button {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .advice {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .positive-advice {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .warning-advice {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .critical-advice {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Finance Tracker</h1>
+        <p>@codeswithpankaj.com</p>
+        
+        <div class="input-section">
+            <select id="transactionType">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <input type="text" id="transactionName" placeholder="Transaction Name">
+            <input type="number" id="transactionAmount" placeholder="Amount" min="0" step="0.01">
+            <button class="btn" onclick="addTransaction()">Add Transaction</button>
+        </div>
+
+        <div class="summary">
+            <h2>Monthly Financial Summary</h2>
+            <p>Total Income: $<span id="totalIncome">0.00</span></p>
+            <p>Total Expenses: $<span id="totalExpenses">0.00</span></p>
+            <p>Savings: $<span id="savings">0.00</span></p>
+            <p>Savings Percentage: <span id="savingsPercentage">0.00</span>%</p>
+        </div>
+
+        <div class="advice" id="financialAdvice"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="transactionList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        class FinanceTracker {
+            constructor() {
+                this.transactions = [];
+            }
+
+            addTransaction(type, name, amount) {
+                // Validate inputs
+                if (!name || amount <= 0) {
+                    alert('Please enter valid transaction details');
+                    return false;
+                }
+
+                this.transactions.push({ type, name, amount });
+                this.updateFinancials();
+                return true;
+            }
+
+            removeTransaction(index) {
+                this.transactions.splice(index, 1);
+                this.updateFinancials();
+            }
+
+            calculateTotalIncome() {
+                return this.transactions
+                    .filter(t => t.type === 'income')
+                    .reduce((total, t) => total + t.amount, 0);
+            }
+
+            calculateTotalExpenses() {
+                return this.transactions
+                    .filter(t => t.type === 'expense')
+                    .reduce((total, t) => total + t.amount, 0);
+            }
+
+            calculateSavings() {
+                const income = this.calculateTotalIncome();
+                const expenses = this.calculateTotalExpenses();
+                return income - expenses;
+            }
+
+            calculateSavingsPercentage() {
+                const income = this.calculateTotalIncome();
+                const savings = this.calculateSavings();
+                
+                return income > 0 
+                    ? ((savings / income) * 100).toFixed(2) 
+                    : 0;
+            }
+
+            generateFinancialAdvice() {
+                const savingsPercentage = parseFloat(this.calculateSavingsPercentage());
+                const advice = document.getElementById('financialAdvice');
+
+                if (savingsPercentage >= 20) {
+                    advice.textContent = "Excellent! You're saving a significant portion of your income.";
+                    advice.className = 'advice positive-advice';
+                } else if (savingsPercentage >= 10) {
+                    advice.textContent = "Good job! Try to increase your savings rate if possible.";
+                    advice.className = 'advice warning-advice';
+                } else {
+                    advice.textContent = "Warning: Your savings rate is low. Review your expenses and look for ways to cut costs.";
+                    advice.className = 'advice critical-advice';
+                }
+            }
+
+            updateFinancials() {
+                const transactionList = document.getElementById('transactionList');
+                const totalIncomeSpan = document.getElementById('totalIncome');
+                const totalExpensesSpan = document.getElementById('totalExpenses');
+                const savingsSpan = document.getElementById('savings');
+                const savingsPercentageSpan = document.getElementById('savingsPercentage');
+
+                // Clear existing transactions
+                transactionList.innerHTML = '';
+
+                // Populate transaction list
+                this.transactions.forEach((transaction, index) => {
+                    const row = transactionList.insertRow();
+                    row.innerHTML = `
+                        <td>${transaction.type.toUpperCase()}</td>
+                        <td>${transaction.name}</td>
+                        <td>$${transaction.amount.toFixed(2)}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="financeTracker.removeTransaction(${index})">Remove</button>
+                        </td>
+                    `;
+                });
+
+                // Update financial summary
+                const totalIncome = this.calculateTotalIncome();
+                const totalExpenses = this.calculateTotalExpenses();
+                const savings = this.calculateSavings();
+                const savingsPercentage = this.calculateSavingsPercentage();
+
+                totalIncomeSpan.textContent = totalIncome.toFixed(2);
+                totalExpensesSpan.textContent = totalExpenses.toFixed(2);
+                savingsSpan.textContent = savings.toFixed(2);
+                savingsPercentageSpan.textContent = savingsPercentage;
+
+                // Generate financial advice
+                this.generateFinancialAdvice();
+            }
+        }
+
+        // Initialize finance tracker
+        const financeTracker = new FinanceTracker();
+
+        // Add Transaction Function
+        function addTransaction() {
+            const typeInput = document.getElementById('transactionType');
+            const nameInput = document.getElementById('transactionName');
+            const amountInput = document.getElementById('transactionAmount');
+
+            const type = typeInput.value;
+            const name = nameInput.value.trim();
+            const amount = parseFloat(amountInput.value);
+
+            if (financeTracker.addTransaction(type, name, amount)) {
+                // Clear inputs after successful addition
+                nameInput.value = '';
+                amountInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
