@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@codeswithpankaj.com Array Transformation Utility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .input-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+        }
+        .result-section {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .result-card {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Array Transformation Utility</h1>
+        <p>@codeswithpankaj.com</p>
+        
+        <div class="input-section">
+            <input 
+                type="text" 
+                id="numberInput" 
+                placeholder="Enter numbers (comma-separated)"
+            >
+            <button class="btn" onclick="processArray()">Analyze Array</button>
+        </div>
+
+        <div id="resultsContainer" class="result-section" style="display: none;">
+            <div class="result-card">
+                <h3>Original Array</h3>
+                <p id="originalArray"></p>
+            </div>
+
+            <div class="result-card">
+                <h3>Even Numbers</h3>
+                <p id="evenNumbers"></p>
+            </div>
+
+            <div class="result-card">
+                <h3>Odd Numbers</h3>
+                <p id="oddNumbers"></p>
+            </div>
+
+            <div class="result-card">
+                <h3>Squared Values</h3>
+                <p id="squaredValues"></p>
+            </div>
+
+            <div class="result-card">
+                <h3>Sorting</h3>
+                <p><strong>Ascending:</strong> <span id="ascendingSort"></span></p>
+                <p><strong>Descending:</strong> <span id="descendingSort"></span></p>
+            </div>
+
+            <div class="result-card">
+                <h3>Array Statistics</h3>
+                <p><strong>Minimum:</strong> <span id="minValue"></span></p>
+                <p><strong>Maximum:</strong> <span id="maxValue"></span></p>
+                <p><strong>Average:</strong> <span id="averageValue"></span></p>
+                <p><strong>Sum:</strong> <span id="sumValue"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class ArrayTransformer {
+            constructor(numbers) {
+                // Convert input to array of numbers, removing any non-numeric values
+                this.numbers = numbers
+                    .split(',')
+                    .map(num => parseFloat(num.trim()))
+                    .filter(num => !isNaN(num));
+            }
+
+            // Filter even numbers
+            filterEvenNumbers() {
+                return this.numbers.filter(num => num % 2 === 0);
+            }
+
+            // Filter odd numbers
+            filterOddNumbers() {
+                return this.numbers.filter(num => num % 2 !== 0);
+            }
+
+            // Map to squared values
+            mapToSquares() {
+                return this.numbers.map(num => num ** 2);
+            }
+
+            // Find minimum value
+            findMinimum() {
+                return Math.min(...this.numbers);
+            }
+
+            // Find maximum value
+            findMaximum() {
+                return Math.max(...this.numbers);
+            }
+
+            // Calculate average
+            calculateAverage() {
+                if (this.numbers.length === 0) return 0;
+                const sum = this.numbers.reduce((a, b) => a + b, 0);
+                return (sum / this.numbers.length).toFixed(2);
+            }
+
+            // Calculate sum
+            calculateSum() {
+                return this.numbers.reduce((a, b) => a + b, 0);
+            }
+
+            // Sort in ascending order
+            sortAscending() {
+                return [...this.numbers].sort((a, b) => a - b);
+            }
+
+            // Sort in descending order
+            sortDescending() {
+                return [...this.numbers].sort((a, b) => b - a);
+            }
+        }
+
+        function processArray() {
+            // Get input
+            const numberInput = document.getElementById('numberInput').value;
+            
+            // Validate input
+            if (!numberInput.trim()) {
+                alert('Please enter some numbers');
+                return;
+            }
+
+            // Create transformer
+            const transformer = new ArrayTransformer(numberInput);
+
+            // Get result containers
+            const resultsContainer = document.getElementById('resultsContainer');
+            const originalArray = document.getElementById('originalArray');
+            const evenNumbers = document.getElementById('evenNumbers');
+            const oddNumbers = document.getElementById('oddNumbers');
+            const squaredValues = document.getElementById('squaredValues');
+            const ascendingSort = document.getElementById('ascendingSort');
+            const descendingSort = document.getElementById('descendingSort');
+            const minValue = document.getElementById('minValue');
+            const maxValue = document.getElementById('maxValue');
+            const averageValue = document.getElementById('averageValue');
+            const sumValue = document.getElementById('sumValue');
+
+            // Populate results
+            originalArray.textContent = transformer.numbers.join(', ');
+            evenNumbers.textContent = transformer.filterEvenNumbers().join(', ');
+            oddNumbers.textContent = transformer.filterOddNumbers().join(', ');
+            squaredValues.textContent = transformer.mapToSquares().join(', ');
+            
+            ascendingSort.textContent = transformer.sortAscending().join(', ');
+            descendingSort.textContent = transformer.sortDescending().join(', ');
+            
+            minValue.textContent = transformer.findMinimum();
+            maxValue.textContent = transformer.findMaximum();
+            averageValue.textContent = transformer.calculateAverage();
+            sumValue.textContent = transformer.calculateSum();
+
+            // Show results
+            resultsContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
