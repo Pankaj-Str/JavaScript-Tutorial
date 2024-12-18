@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@codeswithpankaj Analysis Utility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 20px;
+            padding: 10px;
+            resize: vertical;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .analysis-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .case-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .case-display {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            flex-grow: 1;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Analysis Utility</h1>
+        <p>@codeswithpankaj</p>
+        
+        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        <button class="btn" onclick="analyzeText()">Analyze Text</button>
+
+        <div id="analysisResult" class="analysis-section" style="display: none;">
+            <h2>Text Analysis Report</h2>
+            <div id="basicStats"></div>
+            <div id="characterAnalysis"></div>
+            <div id="palindromeCheck"></div>
+
+            <h3>Case Transformations</h3>
+            <div class="case-section">
+                <div class="case-display">
+                    <strong>Uppercase:</strong>
+                    <p id="uppercaseText"></p>
+                </div>
+                <div class="case-display">
+                    <strong>Lowercase:</strong>
+                    <p id="lowercaseText"></p>
+                </div>
+                <div class="case-display">
+                    <strong>Title Case:</strong>
+                    <p id="titlecaseText"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class TextAnalyzer {
+            constructor(text) {
+                this.text = text.trim();
+            }
+
+            // Count total characters
+            countTotalCharacters() {
+                return this.text.length;
+            }
+
+            // Count words
+            countWords() {
+                // Remove extra spaces and split
+                return this.text.trim().split(/\s+/).filter(word => word.length > 0).length;
+            }
+
+            // Count vowels
+            countVowels() {
+                const vowels = this.text.toLowerCase().match(/[aeiou]/g);
+                return vowels ? vowels.length : 0;
+            }
+
+            // Check for palindrome
+            isPalindrome() {
+                // Remove non-alphanumeric characters and convert to lowercase
+                const cleanText = this.text.toLowerCase().replace(/[^a-z0-9]/g, '');
+                return cleanText === cleanText.split('').reverse().join('');
+            }
+
+            // Convert to uppercase
+            toUpperCase() {
+                return this.text.toUpperCase();
+            }
+
+            // Convert to lowercase
+            toLowerCase() {
+                return this.text.toLowerCase();
+            }
+
+            // Convert to title case
+            toTitleCase() {
+                return this.text
+                    .toLowerCase()
+                    .split(' ')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+            }
+
+            // Detailed character analysis
+            characterAnalysis() {
+                const charMap = {};
+                this.text.toLowerCase().split('').forEach(char => {
+                    if (/[a-z]/.test(char)) {
+                        charMap[char] = (charMap[char] || 0) + 1;
+                    }
+                });
+                return charMap;
+            }
+        }
+
+        function analyzeText() {
+            // Get input text
+            const inputText = document.getElementById('inputText').value;
+            
+            // Hide results if no text
+            if (!inputText.trim()) {
+                alert('Please enter some text to analyze');
+                return;
+            }
+
+            // Create analyzer instance
+            const analyzer = new TextAnalyzer(inputText);
+
+            // Get result containers
+            const analysisResult = document.getElementById('analysisResult');
+            const basicStats = document.getElementById('basicStats');
+            const characterAnalysis = document.getElementById('characterAnalysis');
+            const palindromeCheck = document.getElementById('palindromeCheck');
+            const uppercaseText = document.getElementById('uppercaseText');
+            const lowercaseText = document.getElementById('lowercaseText');
+            const titlecaseText = document.getElementById('titlecaseText');
+
+            // Basic statistics
+            basicStats.innerHTML = `
+                <p><strong>Total Characters:</strong> ${analyzer.countTotalCharacters()}</p>
+                <p><strong>Word Count:</strong> ${analyzer.countWords()}</p>
+                <p><strong>Vowel Count:</strong> ${analyzer.countVowels()}</p>
+            `;
+
+            // Character frequency analysis
+            const charFreq = analyzer.characterAnalysis();
+            let charFreqHTML = '<h3>Character Frequency</h3><ul>';
+            Object.entries(charFreq)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5)
+                .forEach(([char, count]) => {
+                    charFreqHTML += `<li>${char}: ${count} times</li>`;
+                });
+            charFreqHTML += '</ul>';
+            characterAnalysis.innerHTML = charFreqHTML;
+
+            // Palindrome check
+            palindromeCheck.innerHTML = `
+                <p><strong>Palindrome:</strong> ${analyzer.isPalindrome() ? 'Yes' : 'No'}</p>
+            `;
+
+            // Case transformations
+            uppercaseText.textContent = analyzer.toUpperCase();
+            lowercaseText.textContent = analyzer.toLowerCase();
+            titlecaseText.textContent = analyzer.toTitleCase();
+
+            // Show results
+            analysisResult.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
