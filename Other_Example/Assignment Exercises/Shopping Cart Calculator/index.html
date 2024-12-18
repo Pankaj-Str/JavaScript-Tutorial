@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@CodesWithPankaj Shopping Cart Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        .product-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .receipt {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart Calculator</h1>
+        <p>@codeswithpankaj.com</p>
+        
+        <div class="product-form">
+            <input type="text" id="productName" placeholder="Product Name">
+            <input type="number" id="productPrice" placeholder="Price" step="0.01" min="0">
+            <input type="number" id="productQuantity" placeholder="Quantity" min="1">
+            <button class="btn" onclick="addProduct()">Add Product</button>
+        </div>
+
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems"></tbody>
+        </table>
+
+        <div class="receipt" id="receiptDetails">
+            <h2>Cart Summary</h2>
+            <p>Subtotal: $<span id="subtotal">0.00</span></p>
+            <p>Discount: $<span id="discount">0.00</span></p>
+            <p>Tax (10%): $<span id="tax">0.00</span></p>
+            <p>Shipping: $<span id="shipping">0.00</span></p>
+            <h3>Total: $<span id="total">0.00</span></h3>
+        </div>
+    </div>
+
+    <script>
+        // Shopping Cart Class
+        class ShoppingCart {
+            constructor() {
+                this.products = [];
+                this.taxRate = 0.10; // 10% tax
+            }
+
+            addProduct(name, price, quantity) {
+                // Validate inputs
+                if (!name || price <= 0 || quantity <= 0) {
+                    alert('Please enter valid product details');
+                    return false;
+                }
+
+                this.products.push({ name, price, quantity });
+                this.updateCart();
+                return true;
+            }
+
+            removeProduct(index) {
+                this.products.splice(index, 1);
+                this.updateCart();
+            }
+
+            calculateSubtotal() {
+                return this.products.reduce((total, product) => 
+                    total + (product.price * product.quantity), 0);
+            }
+
+            calculateDiscount() {
+                const subtotal = this.calculateSubtotal();
+                // Discount logic
+                if (subtotal > 200) return subtotal * 0.15; // 15% off for orders over $200
+                if (subtotal > 100) return subtotal * 0.10; // 10% off for orders over $100
+                return 0;
+            }
+
+            calculateShipping() {
+                const subtotal = this.calculateSubtotal();
+                // Free shipping for orders over $150
+                return subtotal > 150 ? 0 : 10;
+            }
+
+            calculateTotal() {
+                const subtotal = this.calculateSubtotal();
+                const discount = this.calculateDiscount();
+                const tax = (subtotal - discount) * this.taxRate;
+                const shipping = this.calculateShipping();
+                return subtotal - discount + tax + shipping;
+            }
+
+            updateCart() {
+                const cartItems = document.getElementById('cartItems');
+                const subtotalSpan = document.getElementById('subtotal');
+                const discountSpan = document.getElementById('discount');
+                const taxSpan = document.getElementById('tax');
+                const shippingSpan = document.getElementById('shipping');
+                const totalSpan = document.getElementById('total');
+
+                // Clear existing cart items
+                cartItems.innerHTML = '';
+
+                // Populate cart items
+                this.products.forEach((product, index) => {
+                    const row = cartItems.insertRow();
+                    row.innerHTML = `
+                        <td>${product.name}</td>
+                        <td>$${product.price.toFixed(2)}</td>
+                        <td>${product.quantity}</td>
+                        <td>$${(product.price * product.quantity).toFixed(2)}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="cart.removeProduct(${index})">Remove</button>
+                        </td>
+                    `;
+                });
+
+                // Update summary calculations
+                const subtotal = this.calculateSubtotal();
+                const discount = this.calculateDiscount();
+                const tax = (subtotal - discount) * this.taxRate;
+                const shipping = this.calculateShipping();
+                const total = subtotal - discount + tax + shipping;
+
+                subtotalSpan.textContent = subtotal.toFixed(2);
+                discountSpan.textContent = discount.toFixed(2);
+                taxSpan.textContent = tax.toFixed(2);
+                shippingSpan.textContent = shipping.toFixed(2);
+                totalSpan.textContent = total.toFixed(2);
+            }
+        }
+
+        // Initialize cart
+        const cart = new ShoppingCart();
+
+        // Add Product Function
+        function addProduct() {
+            const nameInput = document.getElementById('productName');
+            const priceInput = document.getElementById('productPrice');
+            const quantityInput = document.getElementById('productQuantity');
+
+            const name = nameInput.value.trim();
+            const price = parseFloat(priceInput.value);
+            const quantity = parseInt(quantityInput.value);
+
+            if (cart.addProduct(name, price, quantity)) {
+                // Clear inputs after successful addition
+                nameInput.value = '';
+                priceInput.value = '';
+                quantityInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
