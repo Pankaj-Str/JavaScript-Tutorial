@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+           border: solid 1px black;
+           float: left;
+           background-color: antiquewhite;
+           list-style: none;
+           padding: 20px;
+           margin: 5px;
+        }
+    </style>
+
+    <script>
+
+
+        function get_data(){
+            data = ["java","c++","go","jsp"]
+
+            for(a = 0 ; a < data.length ; a++){
+                
+                document.getElementById("print").innerHTML += '<li class="box">'+data[a]+'</li>';
+            
+            }
+
+        }
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+    <button onclick="get_data()">Print</button>
+    <ul id="print">
+    </ul>
+</body>
+</html>
