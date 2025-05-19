@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Operators in JavaScript
+        // Arithmetic Operators
+        var a = 10;
+        var b = 5;
+        var sum = a + b; // Addition
+        var difference = a - b; // Subtraction
+        var product = a * b; // Multiplication
+        var quotient = a / b; // Division
+        var remainder = a % b; // Modulus
+        var exponent = a ** b; // Exponentiation
+
+        console.log("Sum: " + sum); // prints 15
+        console.log("Difference: " + difference); // prints 5
+        console.log("Product: " + product); // prints 50
+        console.log("Quotient: " + quotient); // prints 2
+        console.log("Remainder: " + remainder); // prints 0
+        console.log("Exponent: " + exponent); // prints 100000
+
+
+        // Assignment Operators
+        var x = 10;
+        console.log("Initial value of x: " + x); // prints 10
+
+        x = x + 5;
+        console.log("After x = x + 5: " + x); // prints 15
+        x += 5; // Equivalent to x = x + 5
+        console.log("After x += 5: " + x); // prints 20
+
+        x -= 5; // Equivalent to x = x - 5
+        console.log("After x -= 5: " + x); // prints 15
+        x *= 2; // Equivalent to x = x * 2
+        console.log("After x *= 2: " + x); // prints 30
+        x /= 3; // Equivalent to x = x / 3
+        console.log("After x /= 3: " + x); // prints 10
+        x %= 3; // Equivalent to x = x % 3
+        console.log("After x %= 3: " + x); // prints 1
+       
+
+        // Comparison Operators
+        var num1 = 10;
+        var num2 = 20;
+
+        console.log("num1 == num2: " + (num1 == num2)); // prints false
+        console.log("num1 != num2: " + (num1 != num2)); // prints true
+        console.log("num1 > num2: " + (num1 > num2)); // prints false
+        console.log("num1 < num2: " + (num1 < num2)); // prints true
+        console.log("num1 >= num2: " + (num1 >= num2)); // prints false
+        console.log("num1 <= num2: " + (num1 <= num2)); // prints true
+
+
+        // Logical Operators
+        // and (&&)
+        // not (!)
+        // or (||)
+
+        // and operator
+
+        // left side | right side | result
+        // true       | true        | true
+        // true       | false       | false
+        // false      | true        | false
+        // false      | false       | false
+
+        var a = 90
+        var b = 80
+
+        console.log(a > 50 && b > 50); // prints true
+
+        // or operator
+        // left side | right side | result
+        // true       | true        | true
+        // true       | false       | true
+        // false      | true        | true
+        // false      | false       | false
+
+        console.log(a > 50 || 5 > 50); // prints true
+
+        // not operator
+
+        // left side | result
+        // true       | false
+        // false      | true
+
+        console.log(!(a > 50)); // prints false
+        console.log(!(a < 50)); // prints true
+
+    </script>
+</body>
+</html>
