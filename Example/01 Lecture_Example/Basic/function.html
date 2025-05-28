@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // basic function
+
+        function info(){
+            document.write("Hello, World!<br>");
+            document.write("This is a basic function example.<br>");
+            document.write("welcome to codeswithpankaj.com<br>");
+        }
+
+        // call function
+        info();
+
+        // function with parameters
+        function add(a, b){
+            
+            document.write("Sum: " + (a + b) + "<br>");
+
+        }
+
+        // call function with parameters
+        add(5, 10);
+        add(20, 30);
+        add(100, 200);
+
+        // function with return value
+
+        function get_number(){
+            return 42; // return a number
+        }
+
+        // call function with return value
+        const number = get_number();
+        document.write("Returned Number: " + number + "<br>");
+
+        // function with return value and parameters
+        function multiply(a, b){
+            return a * b; // return the product of a and b
+        }
+
+        // call function with return value and parameters
+        const product = multiply(5, 10);
+        document.write("Product: " + product + "<br>");
+
+
+        // function with default parameters
+        function greet(name = "Guest") {
+            document.write("Hello, " + name + "!<br>");
+        }
+
+        // call function with default parameters
+        greet(); // No argument, uses default "Guest"
+        greet("Alice"); // Passes "Alice" as the name
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
