@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // length
+        // character at the specified index 
+        // index of the first occurrence of a substring within the string
+        // slice(start, end)
+        // toUpperCase
+        // toLowerCase
+        // replace(searchValue, replaceValue)
+        // split(separator, limit)
+
+        function replace_01(){
+
+            data = document.getElementById("t_data").value;
+            old = document.getElementById("old").value;
+            new_Data = document.getElementById("new_d").value;
+
+
+            //new_data = data.replace(old, new_Data);
+            new_data = data.replaceAll(old, new_Data);
+            
+            document.getElementById("data_print").innerHTML = data;
+            document.getElementById("New_print").innerHTML = new_data;
+
+
+
+
+        }
+
+
+    </script>
+
+
+    <input type="text" id="t_data">
+    <label>Old word</label> <input type="text" id="old">
+    <label>new word</label> <input type="text" id="new_d">
+    <button onclick="replace_01()">Replace</button>
+
+    <h1>Data : <span id="data_print"></span></h1>
+    <h1>Update Data : <span id="New_print"></span></h1>
+    
+
+</body>
+</html>
