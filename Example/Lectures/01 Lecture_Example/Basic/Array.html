@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+
+        const fruits = ["cherry", "banana", "apple"];
+
+        //for(i = 0 ; i <3 ; i++){
+        //    document.write("<li>",fruits[i],"</li>")
+        //}
+
+        for(i in fruits){
+            console.log(fruits[i])
+        }
+
+        for(i of fruits){
+            console.log(i)
+        }
+
+
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30
+        };
+
+        for (let key in person) {
+            console.log(key + ": " + person[key]);
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
