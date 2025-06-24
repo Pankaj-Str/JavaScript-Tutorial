@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // create a cookie
+        function setCookie(name, value) {
+            
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
+            // Set the cookie to expire in 7 days
+
+        }
+
+        
+
+        // read a cookie
+        function get_cookies(){
+            document.cookie.split(';').forEach(cookie => {
+                const [name, value] = cookie.split('=');
+               // console.log(name.trim() + ": " + value);
+                document.write(name.trim() + ": " + value + "<br>");
+            });
+        }
+    </script>
+
+
+</head>
+<body>
+
+    <button onclick="get_cookies()">Get Cookies</button>
+    <button onclick="setCookie('username', 'JohnDoe')">Set Cookie</button>
+    
+</body>
+</html>
