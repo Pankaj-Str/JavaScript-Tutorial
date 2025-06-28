@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        data = "codes with pankaj"
+        // find the length of string
+        console.log(data.length);
+        // find the index of a character
+        console.log(data.indexOf("p")); 
+        // find the last index of a character
+        console.log(data.lastIndexOf("c"));
+
+        // lowercase and uppercase
+        console.log(data.toLowerCase());
+        console.log(data.toUpperCase());
+
+        // trim
+        data = "   codes with pankaj   "
+        console.log(data.trim());
+        console.log(data);
+
+        // split
+        data = "codes with pankaj"
+        console.log(data.split(" "));
+
+        // replace
+        data = "codes with pankaj"
+        console.log(data.replace("with", "and"));
+
+        // substring
+        data = "codes with pankaj"
+        console.log(data.substring(0, 5)); // "codes"
+        console.log(data.substring(5)); // " with pankaj"
+
+        // charAt
+        data = "codes with pankaj"
+        console.log(data.charAt(0)); // "c"
+        console.log(data.charAt(5)); // " "
+
+        // includes
+        data = "codes with pankaj"
+        console.log(data.includes("pankaj")); // true
+        console.log(data.includes("time")); // false
+
+        // startsWith and endsWith
+        console.log(data.startsWith("codes")); // true
+        console.log(data.endsWith("pankaj")); // true
+
+        // repeat
+        console.log(data.repeat(10)); // "codes with pankajcodes with pankaj"
+
+        // template literals
+        const name = "Pankaj";
+        const age = 25;
+        console.log(`My name is ${name} and I am ${age} years old.`); // "My name is Pankaj and I am 25 years old."
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
