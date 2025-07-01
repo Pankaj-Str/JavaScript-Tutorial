@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // Regex  in JavaScript
+        // Regular expressions are patterns used to match character combinations in strings.
+
+        // example of a simple regex
+        let pattern = /abc/;
+        let regex = new RegExp("abc");
+        console.log(pattern.test("Abcdef"));
+
+        // Flags
+
+        // i - case insensitive
+        let pattern1 = /abc/i;
+        console.log(pattern1.test("AbcDef"));
+
+        // g - global search
+        let pattern2 = /abc/g;
+        let str = "abc abc abc hello abc";
+        console.log(str.match(pattern2));
+
+        // m - multiline
+        let pattern3 = /^abc/m;
+        let str2 = "abc\nabc\nabc";
+        console.log(str2.match(pattern3));
+
+        // d - digit
+        let pattern4 = /\d/;
+        let str3 = "abc123";
+        console.log(str3.match(pattern4));
+
+        // s - whitespace
+        let pattern5 = /\s/;
+        let str4 = "abc def";
+        console.log(str4.match(pattern5));
+
+        // Regex Methods in JavaScript
+        // test() - tests for a match in a string, returns true or false
+        let pattern6 = /abc/;
+        console.log(pattern6.test("abc def")); // true
+
+        // exec() - executes a search for a match in a string, returns an array or null
+        let result = pattern6.exec("abc def abc abc abc abc");
+        console.log(result);
+
+        // match() - retrieves the matches when matching a string against a regex
+        let str5 = "abc def abc abc abc abc";   
+        let matches = str5.match(pattern6);
+        console.log(matches);
+
+        // replace() - replaces matched substrings with a new substring
+        let str6 = "abc def abc abc abc abc";
+        let newStr = str6.replace(pattern6, "xyz");
+        console.log(newStr);
+
+        // search() – Returns index of first match
+        let index = str6.search(pattern6);
+        console.log(index);
+
+        // split() - splits a string into an array of substrings
+        let str7 = "abc def abc abc abc abc";
+        let parts = str7.split(" ");
+        console.log(parts);
+        
+        // Validate Email
+        let email = "test@example.com";
+        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        console.log(emailRegex.test(email)); 
+        // Validate Phone Number
+        let phonePattern = /^\d{10}$/;
+        console.log(phonePattern.test("9876543210")); // true
+
+        // Remove Extra Spaces
+        let text = "   Hello   World!   ";
+        let trimmedText = text.replace(/\s+/g, ' ').trim();
+        console.log(trimmedText); // "Hello World!"
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
