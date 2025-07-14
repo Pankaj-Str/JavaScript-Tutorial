@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // basic function
+        function msg(){
+
+            alert("welcome to cwpc.in")
+
+        }
+
+        //msg();
+
+        // function with parameters
+        function add(a, b) {
+            alert("The sum of " + a + " and " + b + " is: " + (a + b));
+        }
+        
+
+        // calling the function with parameters
+        //add(5, 10);
+        //add(20, 30);
+
+
+        // return function
+        function multiply() {
+            return 900;
+        }
+
+        document.write(multiply())
+
+    </script>
+
+</head>
+<body>
+    <button onclick="msg()">Click Me</button>
+    call with parameters: <br>
+    <button onclick="add(15, 25)">Add 15 and 25</button><br>
+    <button onclick="add(100, 200)">Add 100 and 200</button><br>
+    
+</body>
+</html>

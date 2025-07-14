@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+ 
+
+        function bill(price,gst){
+            // convert inputs to numbers
+            price = parseFloat(price);
+            gst = parseFloat(gst);
+            gst_amount = (price * gst) / 100;
+            total = price + gst_amount;
+            document.getElementById('priceResult').innerText = price;
+            document.getElementById('gstResult').innerText = gst_amount;
+            document.getElementById('totalResult').innerText = total;
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+
+    <h1>Billing System</h1>
+    <p>Enter Price: <input type="number" id="price" placeholder="Enter Price"></p>
+    <p>Enter GST Percentage: <input type="number" id ="gst" placeholder="Enter GST Percentage"></p>
+
+    <h1>bill print </h1>
+    <p>Price : <span id="priceResult"></span></p>
+    <p>GST Amount : <span id="gstResult"></span></p>
+    <p>Total Amount : <span id="totalResult"></span></p>
+
+    <button onclick="bill(document.getElementById('price').value,document.getElementById('gst').value)">Calculate Bill</button>
+
+
+
+</body>
+</html>
