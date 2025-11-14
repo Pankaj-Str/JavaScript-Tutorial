@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        
+       function logic(){
+        number1 = document.getElementById("n1").value;
+        number2 = document.getElementById("n2").value;
+
+        number1 = +number1;
+        number2 = +number2;
+        
+        print = document.getElementById("result");
+
+        if(number1 < number2){
+
+            print.innerHTML = "Number 1 is smallest...";
+            
+        }else{
+            print.innerHTML = "Number 1 is not smallest...";
+        }
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <label> Number 1 : </label>
+    <input type="text" id="n1">
+
+    <label> Number 2 : </label>
+    <input type="text" id="n2">
+
+    <button onclick="logic()">Get Result</button>
+    <h1>Result : <span id="result"></span></h1>
+
+</body>
+</html>
