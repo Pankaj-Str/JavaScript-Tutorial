@@ -12,40 +12,43 @@
 
     <script>
 
-        function printbill(){
-            name = document.getElementById("product").value;
-            price = document.getElementById("price").value;
-            gst = document.getElementById("gst").value;
-            name_p = document.getElementById("name");
-            price_p = document.getElementById("price_p");
-            
-            gst_amount_p = document.getElementById("gst_amount_p");
-            total_price_p = document.getElementById("total_price_p");
 
-            name_p.innerHTML = name;
+    function printbill() {
 
-            price_p.innerHTML = price;
+        let name = document.getElementById("product").value;
+        let price = document.getElementById("price").value;
+        let gst = document.getElementById("gst").value;
+        let qt = document.getElementById("qt").value;
 
-          
+        
+        let name_p = document.getElementById("name");
+        let price_p = document.getElementById("price_p");
+        let gst_p = document.getElementById("gst_p");
+        let gst_amount_p = document.getElementById("gst_amount_p");
+        let total_price_p = document.getElementById("total-price_p");
 
-            switch(gst){
-                case 20 : document.getElementById("gst_p").innerHTML = 20
-                break;
-                case 10 : gst_p.innerHTML = +price*10/100;
-                break;
-                case 18 : gst_p.innerHTML = +price*18/100;
-                break;
-                case 2 : gst_p.innerHTML = +price*2/100;
-                break;
-                case 4 : gst_p.innerHTML = +price*4/100;
-                break;
-            }
+        // Print Product Name & Price
+        name_p.innerHTML = name;
+        price_p.innerHTML = price;
 
-            
-        }
+        // GST Percentage
+        gst_p.innerHTML = gst;
+
+        // Calculate GST Amount
+        let gst_amount = price * gst / 100;
+
+        // Total Price = (Price + GST) * Quantity
+        let total_price = (price + gst_amount) * qt;
+
+        // Print GST Amount & Total
+        gst_amount_p.innerHTML = gst_amount.toFixed(2);
+        total_price_p.innerHTML = total_price.toFixed(2);
+
+    }
+</script>
 
 
-    </script>
+    
 
 
 </head>
