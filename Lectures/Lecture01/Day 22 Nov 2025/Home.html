@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+
+        function printbill(){
+            name = document.getElementById("product").value;
+            price = document.getElementById("price").value;
+            gst = document.getElementById("gst").value;
+            name_p = document.getElementById("name");
+            price_p = document.getElementById("price_p");
+            
+            gst_amount_p = document.getElementById("gst_amount_p");
+            total_price_p = document.getElementById("total_price_p");
+
+            name_p.innerHTML = name;
+
+            price_p.innerHTML = price;
+
+          
+
+            switch(gst){
+                case 20 : document.getElementById("gst_p").innerHTML = 20
+                break;
+                case 10 : gst_p.innerHTML = +price*10/100;
+                break;
+                case 18 : gst_p.innerHTML = +price*18/100;
+                break;
+                case 2 : gst_p.innerHTML = +price*2/100;
+                break;
+                case 4 : gst_p.innerHTML = +price*4/100;
+                break;
+            }
+
+            
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-6 shadow-lg border-1 p-3">
+                <div class="alert alert-primary fs-1 text-center">
+                    Welcome To joy Samosa Store !
+                </div>
+                    <div class="m-2">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <label class="form-label">Price</label>
+                                <input type="text" id="price" class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label">GST</label>
+                                <select id="gst" class="form-control">
+                                    <option value="20">GST 20%</option> 
+                                    <option value="10">GST 10%</option> 
+                                    <option value="18">GST 18%</option> 
+                                    <option value="2">CGST 2%</option> 
+                                    <option value="4">CGST 4%</option>    
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-2">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <label class="form-label">Product Name</label>
+                                <input type="text" id="product" class="form-control">
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label">QT</label>
+                                <input type="text" id="qt" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-2">
+                        <button class="btn btn-danger" onclick="printbill()">Print Bill</button>
+                    </div>      
+            </div>
+                        <div class="col-sm-6 shadow-lg border-1 p-3">
+                
+               <div class="card">
+                <div class="card-header">
+                   
+                    Welcome To joy Samosa Store ! Bill Print
+                   
+                </div>
+                <div class="card-body">
+                    
+                    <h5 class="card-title">Product Name : <span class="text-danger" id="name"> &nbsp; NON</span> </h5>
+                    <h5 class="card-title">Product Price : <span class="text-danger" id="price_p"> &nbsp; 00</span>/- </h5>
+                    <h5 class="card-title">Product GST : <span class="text-danger" id="gst_p"> &nbsp; 0.0</span>%</h5>
+                    <h5 class="card-title">GST Amount  : <span class="text-danger" id="gst_amount_p"> &nbsp; 00</span>/-</h5>
+                    <h5 class="card-title">Total Price : <span class="text-danger" id="total-price_p"> &nbsp; 00</span>/-</h5>
+                    
+                    
+                </div>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
