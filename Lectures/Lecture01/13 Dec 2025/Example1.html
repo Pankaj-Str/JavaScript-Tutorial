@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        ul{
+            list-style: none;
+        }
+        li{
+            border: solid 1px black;
+            border-radius: 40px;
+            background-color: aqua;
+            float: left;
+            padding: 15px;
+            margin: 5px;
+        }
+
+    </style>
+
+    <script>
+
+        function get_result(){
+
+            for(i=0;i<=500;i++){
+
+                document.getElementById("print_box").innerHTML += "<li>"+i+"</li>";
+
+
+            }
+
+
+
+        }
+
+    </script>
+
+
+
+</head>
+<body>
+    
+    <button onclick="get_result()">Get Result</button>
+
+    <ul id="print_box">
+
+    </ul>
+
+</body>
+</html>
