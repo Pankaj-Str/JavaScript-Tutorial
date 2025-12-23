@@ -5,10 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <style>
+        li{
+            font-size: 24px;
+            color: blue;
+            border: solid 1px black;
+            width: 100px;
+            text-align: center;
+            margin: 5px;    
+            padding: 20px;
+            background-color: lightgray;
+            float: left;
+        }
+        ul{
+            list-style-type: none;
+        }
+    </style>
+
     <script>
 
-        start = document.getElementById("start");
-        end = document.getElementById("end");
+        function stopFunction(){
+        start = document.getElementById("start").value;
+        end = document.getElementById("end").value;
+        stop = document.getElementById("stop").value;    
+         // print list
+
+         start = +start
+         end = +end
+
+        for (let i = start; i <= end; i++) {
+            if (i == stop) {
+                break;
+            }
+            document.getElementById("list").innerHTML += "<li>" + i + "</li>"
+            
+        }
+        
+    
+    }
+
 
     </script>
 
@@ -19,9 +54,11 @@
 
     start <input type="text" id="start"> 
     end <input type="text" id="end">
+    stop <input type="text" id="stop">
+    <button onclick="stopFunction()">print</button>
     
-    <button>Stop</button>
-    <button>Start</button>
+
+    <ul id="list"></ul>
 
 
 
