@@ -1,0 +1,1 @@
+console.log("This is an example JS file for functions.");

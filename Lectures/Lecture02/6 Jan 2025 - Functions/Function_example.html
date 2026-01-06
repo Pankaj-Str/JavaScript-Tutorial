@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // basic function example
+        function say_hello(){
+            console.log("Hello, World!");
+        }
+    
+        // calling the function
+        say_hello();
+
+        // function with parameters
+        function add_numbers(num1, num2){
+            result = num1 + num2;
+            console.log("The sum is: " + result);
+            
+        }
+        add_numbers(5, 10);
+        add_numbers(20, 30);
+
+        // function with return value
+
+        function multiply_numbers(a, b){
+            return a * b;
+        }
+
+        // printing the return value
+        
+        console.log("The product is: " + multiply_numbers(4, 5));
+
+        document.write("The product : " + multiply_numbers(6, 7));
+
+        // arrow function example
+        const info = () => {
+            return "This is an arrow function example.";
+        }
+
+        document.write("<br>" + info());
+
+        // perameterized arrow function
+        const square = (x) => {
+            return x * x
+        }
+
+        document.write("<br> The square  " + square(8));
+        document.write("<br> The square  " + square(12));
+        document.write("<br> The square  " + square(15));
+    </script>
+</head>
+<body>
+    <!-- <button onclick="say_hello()">Click me to say Hello</button> -->
+</body>
+</html>
