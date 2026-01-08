@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+
+    const info = {
+        name: "Alice",
+        age: 30,
+        city: "New York"
+    }
+
+    console.log(info.name);
+
+    console.log(info);
+
+    console.log(info['age']);
+
+    // get all keys
+    console.log(Object.keys(info));
+
+    // for loop
+    for (let key in info) {
+        console.log(key + ": " + info[key]);
+    }
+
+    // other way
+
+    for(i = 0 ;i < 3; i++) {
+        keys = Object.keys(info)[i]
+        console.log(keys + ": " + info[keys]);
+    }
+
+
+
+    // other example 
+
+    const student = {
+    firstName: "Alice",
+    lastName: "Smith",
+    age: 20,
+    greet: function() {
+        console.log("this is info about student:");
+    }
+};
+
+student.greet(); // "Hello, I'm Alice Smith."
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>
