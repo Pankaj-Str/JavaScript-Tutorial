@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <script>
+
+        // string 
+        Name = "Joy Jain";
+        document.write(Name,"<hr>");
+
+        // concat
+        First_Name = "Joy";
+        Last_Name = "Jain";
+        Full_Name = First_Name.concat(" ", Last_Name);
+        document.write(Full_Name,"<hr>");
+
+        // length
+        document.write(Full_Name.length,"<hr>");
+
+        // toUpperCase
+        document.write(Full_Name.toUpperCase(),"<hr>");
+
+        // toLowerCase
+        document.write(Full_Name.toLowerCase(),"<hr>");
+
+        // accessing characters
+        document.write(Full_Name[0],"<hr>");
+
+        // Substrings 
+        data = "codes with pankaj"
+        document.write(data.substring(0,4),"<hr>");
+
+        // slice
+        document.write(data.slice(6,11),"<hr>");
+
+        // search
+        document.write(data.search("pankaj"),"<hr>");
+
+        // replace
+        new_data = data.replace("pankaj", "joy");
+
+        document.write(new_data,"<hr>");
+
+        // trim
+        str = "     Hello World!";
+        //trimmed_str = str.trim();
+        document.write("before Trim: '",str,"'<hr>");
+        document.write("After Trim: '",str.trim(),"'<hr>");
+
+        // split
+        fruits = "Mango, Banana, Apple, Orange";
+        fruit_list = fruits.split(", ");
+        document.write(fruit_list[2],"<hr>");
+
+
+        // includes
+        document.write(fruits.includes("Banana"),"<hr>");
+        document.write(fruits.includes("Grapes"),"<hr>");
+
+        // charAt
+        document.write(data.charAt(4),"<hr>");
+
+        // indexOf
+        document.write(data.indexOf("with"),"<hr>");
+
+        // lastIndexOf
+        document.write(data.lastIndexOf("a"),"<hr>");
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
