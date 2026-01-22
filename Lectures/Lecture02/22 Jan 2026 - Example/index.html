@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+
+            function getFullName() {
+                let firstName = document.getElementById("f_name").value;
+                let lastName = document.getElementById("l_name").value;
+                let fullName = firstName.concat(" ", lastName);
+                document.getElementById("print_name").innerHTML = fullName;
+            }
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+   
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-sm-6 border border-primary p-5 rounded-4 shadow-lg">
+                    <label class="form-label">
+                        First Name
+                    </label>
+                    <input type="text" class="form-control" id="f_name"/>
+                    <label class="form-label">
+                        Last Name
+                    </label>
+                    <input type="text" class="form-control" id="l_name" />
+                  <button class="btn btn-primary mt-3 w-100" onclick="getFullName()">
+                    Get Full Name
+                  </button>  
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3 mt-4 p-4 border border-success rounded-4 shadow-lg">
+                    <h3 class="text-center">
+                        Full Name:
+                    </h3>
+                    <h1 class="text-center fs-4 alert alert-info" id="print_name">
+                        Nishant Chouhan    
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+</html>
