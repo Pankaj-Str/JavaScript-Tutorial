@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style: none;
+        }
+        li {
+            font-size: 20px;
+            color: blue;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 10px;
+            background-color: aqua;
+            float: left;
+        }
+
+    </style>
+
+
+<script>
+
+
+    data = [];
+
+    // enter array size 
+    let size = prompt("Enter the size of the array:");
+
+
+    for(i = 0 ; i < size; i++){
+        let element = prompt("Enter element " + (i+1) + ":");
+        data.push(element);
+    }
+
+    //document.write(data[0],'<br>');
+
+    // print all elements using a loop
+    for (let i = 0; i < data.length; i++) {
+        document.write('<ul><li>',data[i],'</li></ul>');
+    }
+    
+
+
+</script>
+
+
+
+</head>
+<body>
+    
+
+
+
+
+
+</body>
+</html>
