@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+
+        data = ['nishant', 'jain', 24, 'javascript']
+
+        console.log(data[3])
+
+        // push()
+
+        data.push('python')
+        console.log(data)
+
+        // pop()
+        data.pop()
+        console.log(data)
+
+        // unshift()
+        data.unshift('hello')
+        console.log(data)
+
+        // shift()
+        data.shift()
+        console.log(data)
+
+        // length
+        console.log(data.length)
+
+        // indexOf()
+        console.log(data.indexOf(24))
+
+        // includes()
+        console.log(data.includes('javascript'))
+
+        // concat() -> add two arrays
+        data2 = ['html', 'css']
+        new_data = data.concat(data2)
+        console.log(new_data)
+
+        // slice() -> extract a portion of an array
+        console.log(new_data.slice(0, 4))
+
+        // splice() -> add 0
+        new_data.splice(2,0,'python')
+        console.log(new_data)
+        // splice() -> remove 1 element
+        new_data.splice(2,1)
+        console.log(new_data)
+
+        // reverse()
+        data = [1, 2, 3, 4, 5]
+        console.log(data.reverse())
+
+        // join -> convert array to string
+        data = ['nishant', 'jain', 24, 'javascript']
+        console.log(data.join(" "))
+
+        // sort()
+        data = [5, 2, 8, 1, 4]
+        console.log(data.sort())
+
+        // using loop to iterate over array
+
+        data = ['nishant', 'jain', 24, 'javascript']
+
+        for(i = 0;i<data.length;i++){
+            console.log(data[i])
+        }
+
+        // map()
+
+        data = [1, 2, 3, 4, 5]
+        new_data = data.map(function(value){
+            return value * 2
+        })
+        console.log(new_data)
+
+        // filter()
+        data = [1, 2, 3, 4, 5]
+
+        new_data = data.filter(function(value){
+            return value % 2 === 0
+        })
+        console.log(new_data)
+
+        // reduce()
+        data = [1, 2, 3, 4, 5]
+        sum = data.reduce(function(a, b){
+            return a + b
+        }, 0)
+        console.log(sum)
+
+        // find()
+        data = [1, 2, 3, 4, 5]
+        new_data = data.find(function(value){
+            return value > 3
+        })
+        console.log(new_data)
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
