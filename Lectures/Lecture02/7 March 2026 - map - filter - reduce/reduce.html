@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // reduce()
+
+        data = [12,23,34,45,56,67,78,89,90]
+
+        function sum(x,y){
+            return x+y
+        }
+
+        console.log(data.reduce(sum)) // array_name.reduce(user_defined_function)
+
+
+
+        // for loop 
+        total = 0;
+        for(let i=0; i<data.length; i++){
+            total = total + data[i]           
+        }
+
+        console.log(total)
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
