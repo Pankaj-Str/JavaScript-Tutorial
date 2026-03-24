@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        function get_bill(){
+
+            productName = document.getElementById("product_name").value;
+            productPrice = document.getElementById("product_price").value;
+            productQT = document.getElementById("product_qt").value;
+
+
+            price = productPrice*productQT;
+
+            document.getElementById("p_name").innerHTML = productName;
+            document.getElementById("p_price").innerHTML = price;
+            document.getElementById("p_QT").innerHTML = productQT;
+
+
+        }
+    </script>
+
+
+</head>
+<body>
+    
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-6 border border-1 border-black p-4">
+                <div class="alert alert-danger">
+                    <h4> Input Section </h4>
+                </div>    
+                    <div class="m-2">
+                        <label class="form-label">Enter Product Name</label>
+                        <input type="text" id="product_name" class="form-control">
+                    </div>
+                    <div class="m-2">
+                        <label class="form-label">Enter Product Price</label>
+                        <input type="text" id="product_price" class="form-control">
+                    </div>
+                    <div class="m-2">
+                        <label class="form-label">Enter Product QT</label>
+                        <input type="text" id="product_qt" class="form-control">
+                    </div>
+                    <div class="m-2">
+                        <button class="btn btn-danger" onclick="get_bill()">Get Bill</button>
+                    </div>
+            </div>
+            <div class="col-sm-6 border border-1 border-black p-4">
+                <div class="alert alert-primary">
+                    <h4> Bill </h4>
+                </div>
+                <div class="alert alert-secondary">
+                    <label class="form-label fw-bold m-2">Product Name = 
+                        <span class="text-danger" id="p_name"></span>
+                    </label>
+                    <br>
+                    <label class="form-label fw-bold m-2">Product Price = 
+                        <span class="text-danger" id="p_price"></span>
+                    </label>
+                    <br>
+                    <label class="form-label fw-bold m-2">Product QT = 
+                        <span class="text-danger" id="p_QT"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
