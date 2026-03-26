@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function q1(){
+            answer = document.getElementById("select_option").value;
+
+        right_answer = "mars";
+        print = document.getElementById("q1_answer");
+        if(answer == right_answer){
+            print.innerHTML = "Right Answer = "+answer;
+        }else{
+            print.innerHTML = "wrong Answer = "+answer;
+        }
+
+        }
+
+
+        function q2(){
+          const   selectedanswer = document.querySelector('input[name="option"]:checked');
+        right_answer = "ajinkya";
+        print = document.getElementById("q2_answer");
+        if(selectedanswer.value == right_answer){
+            print.innerHTML = "Right Answer = "+selectedanswer.value;
+        }else{
+            print.innerHTML = "wrong Answer = "+selectedanswer.value;
+        }
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+    
+    <h1>MCQ Exam</h1>
+
+    <p>
+      1  Which planet is known as the Red Planet ?
+    </p>
+    <select id="select_option">
+        <option value="jupiter">Jupiter</option>
+        <option value="mars">Mars</option>
+        <option value="venus">Venus</option>
+        <option value="saturn">Saturn</option>
+    </select>
+    <br>
+    <br>
+    <button onclick="q1()">Result</button>
+    <p id="q1_answer"></p>
+
+    <p>
+      2  Who was the first Prime Minister of India? ?
+    </p>
+    <input type="radio" name="option" value="bhoomi"> Bhoomi <br>
+    <input type="radio" name="option" value="sumit"> Sumit <br>
+    <input type="radio" name="option" value="ajinkya"> ajinkya <br>
+    <input type="radio" name="option" value="pankaj"> Pankaj <br>
+    <br>
+    <br>
+    <button onclick="q2()">Result</button>
+    <p id="q2_answer"></p>
+
+
+</body>
+</html>
