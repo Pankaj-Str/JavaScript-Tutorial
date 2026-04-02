@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: blanchedalmond;
+        }
+
+        ul{
+            list-style: none;
+        }
+        li{
+            border: 1px solid black;
+            float: left;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 100px;
+            background-color: whitesmoke;
+        }
+    </style>
+
+    <script>
+        function printBox() {
+            var start = parseInt(document.getElementById("start").value);
+            var end = parseInt(document.getElementById("end").value);
+
+            print = document.getElementById("print_out");
+
+            for(var i = start; i <= end; i++) {
+                
+                print.innerHTML += "<li>" + i + "</li>";
+
+            }
+            
+        }
+    </script>
+
+</head>
+<body>
+
+    <input type="text" id="start" placeholder="Enter a Start number">
+    <input type="text" id="end" placeholder="Enter a End number">
+    <button onclick="printBox()">Print Box</button>
+
+    <ul id="print_out">
+
+    </ul>
+
+
+</body>
+</html>
