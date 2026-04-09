@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        color = ["white","blue","green","yellow","pink"]
+
+        for(c of color){
+            document.write("<hr>",c)
+        }
+
+        // string 
+
+        document.write("<br> ------------------------- ")
+
+        function print(){
+            Data = "bhoomi"
+            for(i of Data){
+                //document.write("<br>",i)
+                document.getElementById("print_data").innerHTML += "<br>"+i
+                
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <h1>Welcome to codeswithpankaj.com</h1>
+    <button onclick="print()">Print</button>
+    <p id="print_data"></p>
+
+    
+</body>
+</html>

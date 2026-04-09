@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        const person = {
+            first_name : "sumit",
+            last_name : "yadav",
+            age : 25
+        };
+
+        //document.write("the name is : ",person.first_name)
+
+        //console.log("the name is : ",person.first_name)
+
+
+        // using loop for print all data 
+        for(key in person){
+            document.write(key," = ",person[key],"<hr>")
+        }
+
+
+        // using array 
+        data = [12,13,14,15,16,17]
+        for(i in data){
+            document.write("<hr> ",i," = ",data[i])
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
